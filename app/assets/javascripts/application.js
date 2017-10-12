@@ -1,6 +1,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require vue
+//= require components/pagination
 //= require components/firstPage
 //= require components/secondPage
+//= require components/thirdPage
+//= require components/fourthPage
 //= require app
