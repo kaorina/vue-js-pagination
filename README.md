@@ -27,8 +27,8 @@ cp config/database.yml.sample config/database.yml
 ### .ruby-versionについて
 Rubyのバージョンを変更する場合は.ruby-versionファイルを編集してください。
 
-### データベースの作成、migrationの実行について
-下記コマンドで行ってください。
+### データベースの作成について
+下記コマンドで行ってください。(テーブルはないのでmigrationは不要です)
 
 ```
 ./bin/rake db:create
