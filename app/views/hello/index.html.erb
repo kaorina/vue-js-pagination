@@ -1,5 +1,5 @@
 <div id="app">
-  <pagination v-on:send-page-from-child="switchComponent"></pagination>
+  <pagination v-on:send-page-from-child="switchComponent" :page-state="pageState"></pagination>
   <first-page :page-state="pageState"></first-page>
   <second-page :page-state="pageState"></second-page>
   <third-page :page-state="pageState"></third-page>
@@ -8,27 +8,35 @@
 
 <script type="text/x-template" id="pagination-template">
   <ul class="list-inline">
-    <li @click="changeState('first')" class="btn btn-primary">1</li>
-    <li @click="changeState('second')" class="btn btn-primary">2</li>
-    <li @click="changeState('third')" class="btn btn-primary">3</li>
-    <li @click="changeState('fourth')" class="btn btn-primary">4</li>
+    <li @click="changePage('first')" class="btn btn-primary list-inline-item" v-if="firstButton">1</li>
+    <li v-else class="list-inline-item">1</li>
+    <li @click="changePage('second')" class="btn btn-primary list-inline-item" v-if="secondButton">2</li>
+    <li v-else class="list-inline-item">2</li>
+    <li @click="changePage('third')" class="btn btn-primary list-inline-item" v-if="thirdButton">3</li>
+    <li v-else class="list-inline-item">3</li>
+    <li @click="changePage('fourth')" class="btn btn-primary list-inline-item" v-if="fourthButton">4</li>
+    <li v-else class="list-inline-item">4</li>
   </ul>
 </script>
+
 <script type="text/x-template" id="first-page-template">
   <div v-show="active">
     <p>1ページのコンテンツ</p>
   </div>
 </script>
+
 <script type="text/x-template" id="second-page-template">
   <div v-show="active">
     <p>2ページのコンテンツ</p>
   </div>
 </script>
+
 <script type="text/x-template" id="third-page-template">
   <div v-show="active">
     <p>3ページのコンテンツ</p>
   </div>
 </script>
+
 <script type="text/x-template" id="fourth-page-template">
   <div v-show="active">
     <p>4ページのコンテンツ</p>
